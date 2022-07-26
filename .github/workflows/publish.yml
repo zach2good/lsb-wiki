@@ -1,0 +1,21 @@
+name: publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Publish_Wiki:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 0
+    - name: Publish to public wiki
+      run: |
+        # Add the published viewable wiki repo as a remote
+        git remote add wiki https://github.com/LandSandBoat/server.wiki.git
+
+        # Force-push local main branch onto the published wiki'd master branch (this is the visible branch)
+        git push --force wiki main:master
