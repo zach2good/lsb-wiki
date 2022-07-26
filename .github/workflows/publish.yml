@@ -9,13 +9,18 @@ jobs:
   Publish_Wiki:
     runs-on: ubuntu-22.04
     steps:
+    # Checkout the server.wiki repo that we want to publish to with the GH_PAT token.
+    # This allows us to push to it when we're ready with changes.
     - uses: actions/checkout@v1
       with:
-        fetch-depth: 0
-    - name: Publish to public wiki
+        repository: zach2good/server.wiki
+        token: ${{ secrets.GH_PAT }}
+        path: server.wiki
+    - name: Fetch lsb-wiki changes
       run: |
-        # Add the published viewable wiki repo as a remote
-        git remote add wiki https://github.com/LandSandBoat/server.wiki.git
-
-        # Force-push local main branch onto the published wiki'd master branch (this is the visible branch)
-        git push --force wiki main:master
+        git remote add lsb-wiki https://github.com/zach2good/lsb-wiki.git
+        git fetch lsb-wiki main:lsb-wiki
+    - name: Add upstream remote
+      run: |
+        # Force-push local lsb-wiki branch onto server.wiki's master branch (this is the visible branch)
+        git push --force origin lsb-wiki:master
