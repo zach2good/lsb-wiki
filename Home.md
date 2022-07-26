@@ -1,5 +1,7 @@
 This is the wiki for LandSandBoat (LSB below) - an open-source server emulator for FFXI.
 
+TEST TEST
+
 # General
 General articles about the project.
 - [[What Works|https://github.com/LandSandBoat/server/wiki/What-Works]]
