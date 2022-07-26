@@ -15,7 +15,9 @@ jobs:
       with:
         repository: zach2good/server.wiki
         ref: master
-        # token: A_TOKEN
+    - uses: webfactory/ssh-agent@v0.5.4
+      with:
+          ssh-private-key: ${{ secrets.TEST_GITHUB }}
     - name: Add lsb-wiki remote
       run: |
         git remote add lsb-wiki https://github.com/zach2good/lsb-wiki.git
