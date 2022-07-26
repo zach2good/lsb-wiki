@@ -13,7 +13,8 @@ jobs:
     # This allows us to push to it when we're ready with changes.
     - uses: actions/checkout@v3
       with:
-        repository: zach2good/server.wiki.git
+        repository: zach2good/server.wiki
+        ref: master
     - name: Fetch lsb-wiki changes
       run: |
         git remote add lsb-wiki https://github.com/zach2good/lsb-wiki.git
