@@ -13,7 +13,7 @@ jobs:
     # This allows us to push to it when we're ready with changes.
     - uses: actions/checkout@v1
       with:
-        repository: zach2good/server.wiki
+        repository: zach2good/server.wiki.git
         #token: ${{ secrets.GH_PAT }}
     - name: Fetch lsb-wiki changes
       run: |
