@@ -15,11 +15,14 @@ jobs:
       with:
         repository: zach2good/server.wiki
         ref: master
-    - name: Fetch lsb-wiki changes
+        token: 
+    - name: Add lsb-wiki remote
       run: |
         git remote add lsb-wiki https://github.com/zach2good/lsb-wiki.git
+    - name: Fetch lsb-wiki
+      run: |
         git fetch lsb-wiki main:lsb-wiki
-    - name: Add upstream remote
+    - name: Push lsb-wiki changes
       run: |
         # Force-push local lsb-wiki branch onto server.wiki's master branch (this is the visible branch)
         git push --force origin lsb-wiki:master
