@@ -15,7 +15,7 @@ jobs:
       with:
         repository: zach2good/server.wiki
         ref: master
-        token: 
+        token: A_TOKEN
     - name: Add lsb-wiki remote
       run: |
         git remote add lsb-wiki https://github.com/zach2good/lsb-wiki.git
